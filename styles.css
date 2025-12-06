@@ -579,6 +579,7 @@ img {
     padding: var(--spacing-xl) 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     position: relative;
+    overflow-x: hidden;
 }
 
 .section-header {
@@ -703,6 +704,7 @@ img {
 .projects {
     padding: var(--spacing-xl) 0;
     background: var(--white);
+    overflow-x: hidden;
 }
 
 .carousel-container {
@@ -712,6 +714,7 @@ img {
     overflow: hidden;
     border-radius: 20px;
     box-shadow: var(--shadow-xl);
+    background: var(--navy-dark);
 }
 
 .carousel-track {
@@ -724,12 +727,16 @@ img {
     min-width: 100%;
     position: relative;
     aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-dark);
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -1046,8 +1053,13 @@ img {
    Responsive Design
    =========================== */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+
     .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
     }
 
     .projects-grid {
@@ -1068,9 +1080,25 @@ img {
     .nav-phone-btn i {
         font-size: 1.1rem;
     }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .services, .projects, .stats {
+        padding: 3rem 0;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1102,10 +1130,12 @@ img {
 
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
+        padding: 0 1rem;
     }
 
     .stats-grid {
@@ -1117,10 +1147,19 @@ img {
         grid-template-columns: 1fr;
     }
 
+    .service-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .carousel-container {
+        margin: 2rem -1.5rem 0;
+        border-radius: 0;
+    }
+
     .carousel-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
     }
 
     .carousel-prev {
@@ -1132,7 +1171,7 @@ img {
     }
 
     .carousel-slide {
-        aspect-ratio: 4/3;
+        aspect-ratio: 1/1;
     }
 
     .contact-grid {
@@ -1170,33 +1209,58 @@ img {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 0.5rem;
     }
 
     .btn-primary {
-        padding: 1rem 2rem;
-        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
     }
 
     .service-card {
         padding: 2rem 1.5rem;
     }
 
-    .contact-cta {
-        padding: 2rem 1.5rem;
+    .service-card h3 {
+        font-size: 1.5rem;
     }
 
-    .cta-features {
-        grid-template-columns: 1fr;
+    .carousel-container {
+        margin: 1.5rem -1rem 0;
+        border-radius: 0;
     }
 
-    .footer-map iframe {
-        width: 100%;
-        height: 150px;
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .carousel-prev {
+        left: 5px;
+    }
+
+    .carousel-next {
+        right: 5px;
+    }
+
+    .carousel-slide {
+        aspect-ratio: 1/1;
     }
 
     .contact {
@@ -1259,7 +1323,13 @@ img {
     }
 
     .cta-features {
+        grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .footer-map iframe {
+        width: 100%;
+        height: 150px;
     }
 }
 
